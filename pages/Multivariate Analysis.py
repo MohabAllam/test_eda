@@ -29,7 +29,7 @@ st.subheader("Bivariate & Multivariate Analysis")
 st.markdown("### 1. How does customer age influence purchase value across genders?")
 fig1 = px.scatter(df, x='age', y='total_price', color='gender', title='Age vs Total Price by Gender',
                    labels={'age': 'Customer Age', 'total_price': 'Total Price'},
-                   trendline='ols', hover_data=['product_type', 'quantity'])
+                   hover_data=['product_type', 'quantity'])
 st.plotly_chart(fig1, use_container_width=True)
 
 age_gender_analysis = df.groupby('gender').agg({'age': 'mean', 'total_price': 'mean', 'quantity': 'mean'}).round(2)
